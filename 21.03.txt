@@ -1,0 +1,264 @@
+PARAMETROS
+
+import java.util.Scanner;
+public class parametros
+{
+public static double PesoMasculino(double altura)
+{	
+return 72.1*altura-58;
+}
+public static double PesoFeminino(double altura)
+{
+ return 62.1*altura-44;
+}
+
+public static void main (String[] args)
+Scanner entrada = new Scanner(System.in);
+	double altura,peso;
+	char sexo;
+	
+	System.out.print("seu sexo (M/F):");
+	sexo=entrada.next().charAt(0);
+	System.out.print("sua altura em metros:");
+    altura=entrada.nextDouble();
+    
+    if(sexo=='M' || sexo=='m')
+    peso= PesoMasculino(altura);
+    else if (sexo=='F' || sexo=='f')
+    peso= PesoFeminino(altura);
+    else 
+    peso= -1;
+    
+    if(peso>=0)
+      System.out.printf("Peso ideal: %.1f\n ",peso);
+      else 
+      System.out.println("sexo invalido");
+}
+}
+
+FUNCOES
+
+public class funcoes
+{
+	public static String ParImpar(int numero)
+{
+	if(numero%2==0)
+	return "Eh par!";
+	else
+	return "Eh impar";
+}
+}
+
+TESTAFUNCOES
+
+import java.util.Scanner;
+public class Testafuncoes
+{
+	public static voois main (String[] args)
+{
+	Scanner entrada = new Scanner(System.in);
+	int num;
+	String resultado;
+	
+	System.out.print("entre com um numerp: ");
+	num=entrada.nextInt();
+	
+	resultado = funcoes.ParImpar(num);
+	System.out.println(resultado);
+}
+
+FUNCOES NAO ESTATICA 
+
+import java.util.Scanner;
+public class Testafuncoes
+{
+	public static void main (String[] args)
+{
+	Scanner entrada = new Scanner(System.in);
+	/*Para funcao nao-estatica*/
+	funcoes func = new funcoes();
+	int num;
+	String resultado;
+	
+	System.out.print("entre com um numero: ");
+	num=entrada.nextInt();
+	
+	//resultado = funcoes.ParImpar(num);
+	resultado = func.ParImpar(num);
+	System.out.println(resultado);
+}
+}
+
+SORTEIO COM HACK
+
+import java.util.Scanner;
+import java.util.Random;
+public class Sorteio
+{
+	public static void main (String[] args)
+{
+  int sorteado, escolha;
+  boolean acertou=false;
+  Scanner entrada = new Scanner (System.in);
+  Random gera = new Random();
+  sorteado = gera.nextInt(20); // de 0 a 19
+  sorteado = sorteado +1; // de 1 a 20
+  
+  /* Hack - mostrar o sorteado*/
+  System.out.println("["+sorteado+"]");
+  
+  /*1a. tentativa */
+  System.out.print("primeiro palpite (1-20): ");
+  escolha = entrada.nextInt();
+  if (escolha == sorteado)
+  {
+  System.out.println("Parabens voce acertou");
+  acertou = true; 	
+  }
+    /*2a. tentativa */
+    if(acertou == false)
+    {
+    	System.out.print("tentar novamente (1-20; "); 
+    	escolha = entrada.nextInt();
+    	if (escolha == sorteado)
+    {
+    	System.out.println("Acertou na segunda!");
+    	acertou = true;
+    }
+  }
+  
+  /*3a. tentativa */
+    if(acertou == false)
+    {
+    	System.out.print("tentar novamente (1-20; "); 
+    	escolha = entrada.nextInt();
+    	if (escolha == sorteado)
+    {
+    	System.out.println("Acertou na ultima!");
+    	acertou = true;
+     }
+    }
+    if (acertou == false)
+    {
+    	 System.out.println("poxa, voce nao acertou");
+    	 System.out.println("Era o:" + sorteado);
+    }
+   
+  }
+}
+
+SORTEIO SEM HACK
+
+import java.util.Scanner;
+import java.util.Random;
+public class Sorteio
+{
+	public static void main (String[] args)
+{
+  int sorteado, escolha;
+  boolean acertou=false;
+  Scanner entrada = new Scanner (System.in);
+  Random gera = new Random();
+  sorteado = gera.nextInt(20); // de 0 a 19
+  sorteado = sorteado +1; // de 1 a 20
+  
+  /* Hack - mostrar o sorteado*/
+  /*System.out.println("["+sorteado+"]")*/;
+  
+  /*1a. tentativa */
+  System.out.print("primeiro palpite (1-20): ");
+  escolha = entrada.nextInt();
+  if (escolha == sorteado)
+  {
+  System.out.println("Parabens voce acertou");
+  acertou = true; 	
+  }
+    /*2a. tentativa */
+    if(acertou == false)
+    {
+    	System.out.print("tente novamente (1-20; "); 
+    	escolha = entrada.nextInt();
+    	if (escolha == sorteado)
+    {
+    	System.out.println("Acertou na segunda!");
+    	acertou = true;
+    }
+  }
+  
+  /*3a. tentativa */
+    if(acertou == false)
+    {
+    	System.out.print("tentar novamente (1-20; "); 
+    	escolha = entrada.nextInt();
+    	if (escolha == sorteado)
+    {
+    	System.out.println("Acertou na ultima!");
+    	acertou = true;
+     }
+    }
+    if (acertou == false)
+    {
+    	 System.out.println("poxa, voce nao acertou");
+    	 System.out.println("Era o:" + sorteado);
+    }
+   
+  }
+}
+
+LINGUAGEM PROFICIONAL a++
+
+import java.util.Scanner;
+import java.util.Random;
+public class Sorteio
+{
+	public static void main (String[] args)
+{
+  int sorteado, escolha;
+  boolean acertou=false;
+  Scanner entrada = new Scanner (System.in);
+  Random gera = new Random();
+  sorteado = gera.nextInt(20); // de 0 a 19
+  sorteado++; // de 1 a 20
+  
+  /* Hack - mostrar o sorteado*/
+  /*System.out.println("["+sorteado+"]")*/;
+  
+  /*1a. tentativa */
+  System.out.print("primeiro palpite (1-20): ");
+  escolha = entrada.nextInt();
+  if (escolha == sorteado)
+  {
+  System.out.println("Parabens voce acertou");
+  acertou = true; 	
+  }
+    /*2a. tentativa */
+    if(!acertou)
+    {
+    	System.out.print("tente novamente (1-20; "); 
+    	escolha = entrada.nextInt();
+    	if (escolha == sorteado)
+    {
+    	System.out.println("Acertou na segunda!");
+    	acertou = true;
+    }
+  }
+  
+  /*3a. tentativa */
+    if(!acertou)
+    {
+    	System.out.print("tentar novamente (1-20; "); 
+    	escolha = entrada.nextInt();
+    	if (escolha == sorteado)
+    {
+    	System.out.println("Acertou na ultima!");
+    	acertou = true;
+     }
+    }
+    if (!acertou)
+    {
+    	 System.out.println("poxa, voce nao acertou");
+    	 System.out.println("Era o:" + sorteado);
+    }
+   
+  }
+}
