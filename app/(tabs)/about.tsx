@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet } from "react-native";
-import ImageViewer from '@/app/components/imageViewer';
+import ImageViewer from '@/components/ImageViewer';
 import { useState } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 const PlaceholderImage = require('@/assets/images/oi.jpg');
